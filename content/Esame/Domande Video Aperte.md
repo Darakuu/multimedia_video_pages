@@ -2,6 +2,7 @@
 tags:
   - Multimedia/Video
 ---
+Work In Progress
 - A cosa ci si riferisce quando si parla di formati video?
 	- Un Formato Video è una raccolta di metodi standard di codifica, memorizzazione e riproduzione usati nei dispositivi video.
 	  Includono informazioni su:
