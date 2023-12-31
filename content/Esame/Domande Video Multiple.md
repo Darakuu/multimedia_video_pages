@@ -5,7 +5,7 @@ tags:
 1. Quale tra i seguenti è un vantaggio dello standard PAL Rispetto a NTSC?
 	- [ ] Risolve il problema dell'instabilità luminosa di NTSC alternando uno sfasamendo del segnale di luminanza Y
 	- [ ] Risolve il problema dell'instabilità cromatica di NTSC alternando uno sfasamendo del segnale di crominanza U
-	- [-] Risolve il problema dell'instabilità cromatica di NTSC alternando uno sfasamendo del segnale di crominanza V 
+	- [x] Risolve il problema dell'instabilità cromatica di NTSC alternando uno sfasamendo del segnale di crominanza V 
 	- [ ] Nessuna risposta è corretta
 2. Quale tra i seguenti sistemi d iregistrazione su nastro magnetico garantisce una migliore larghezza di banda?
 	- [x] Sistema elicoidale
