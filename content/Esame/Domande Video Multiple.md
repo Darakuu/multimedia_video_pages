@@ -15,7 +15,7 @@ tags:
 3. Cosa si intende con Dolly, quando si parla di modelli di movimento di una telecamera?
 	- Una variazione della focale della camera
 	- Una rotazione della camera attorno all'asse perpendicolare al piano di formazione dell'immagine
-	- Una traslazione della camera lungo l'asse perpendicolare al piano di formazioen dell'immagine. $\textcolor{green}{\checkmark}$
+	- Una traslazione della camera lungo l'asse perpendicolare al piano di formazione dell'immagine. $\textcolor{green}{\checkmark}$
 	- Nessuna è corretta.
 4. Quale delle seguenti affermazioni sul modello di movimento a 4 parametri è $\textcolor{red}{\text{falsa}}$?
 	- Viene anche chiamato geometric mapping

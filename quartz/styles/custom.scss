@@ -14,7 +14,6 @@
   }
 }
 
-ul > li.task-list-item.is-checked {
-  opacity: 0% !important;
-  text-decoration: line-through !important;
+ul > li.task-list-item {
+  text-decoration: none;
 }
