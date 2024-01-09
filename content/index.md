@@ -16,5 +16,8 @@ Non intendono e non vogliono sostituire libri, slide ufficiali e quant’altro. 
 - [[03-Stima Movimento]]
 - [[04-Stabilizzazione Video]]
 - [[05-Compressione Video]]
+- Esame
+	- [[Domande Video Aperte|Domande a Risposta Aperta]]
+	- [[Domande Video Multiple|Domande a Risposta Multipla]]
 
 p.s. la parte di storia del video è volutamente omessa.
