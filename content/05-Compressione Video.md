@@ -73,9 +73,34 @@ I B-Frame possono essere posizionati in mezzo a I-Frames e P-Frames.
 > Ad esempio, un P-Frame può dipendere da I-Frames o anche da altri P-Frames, ma non da B-Frames.
 > Un B-Frame può dipendere sia da P-Frames che I-Frames.
 
+Consideriamo la sequenza di frame (f) con relativi macroblocchi (ma):
+
+![[05-Compressione Video-20240111183614933.webp|512]]
 
 > [!example]- Esempio Memorizzazione (possibile domanda esame)
-> WIP
+> i $\text{ma}$ del f1 sono tutti codificati come Intra-Frame
+> i $\text{ma}$ del f2 cercheranno i blocchi simili nel f1 (I) e nel f4 (P)
+> i $\text{ma}$ del f3 cercheranno i blocchi simili nel f1 (I) e nel f4 (P)
+> i $\text{ma}$ del f4 cercheranno i blocchi simili nel f1 (I)
+> i $\text{ma}$ del f5 cercheranno i blocchi simili nel f4 (P) e nel f7 (P) 
+> i $\text{ma}$ del f6 cercheranno i blocchi simili nel f4 (P) e nel f7 (P)
+> i $\text{ma}$ del f7 cercheranno i blocchi simili nel f4 (P)
+> i $\text{ma}$ del f8 cercheranno i blocchi simili nel f7 (P) e nel f10 (P)
+> i $\text{ma}$ del f9 cercheranno i blocchi simili nel f7 (P) e nel f10 (P)
+> i $\text{ma}$ del f10 cercheranno i blocchi simili nel f7
+> i $\text{ma}$ del f11 cercheranno i blocchi simili nel f10 (P) e nel f13 (I)
+> i $\text{ma}$ del f12 cercheranno i blocchi simili nel f10 (P) e nel f13 (I)
+> i $\text{ma}$ del f13 sono tutti codificati come Intra-Frame.
+> La sequenza è conclusa.
+
+Ma come fanno i frame B a riferirsi a frame che "devono ancora arrivare" nel flusso video? 
+L'Encoder e il decoder processano i frame in ordine diverso da quello iniziale. I frame vengono riordinati per evitare di eseguire "salti" quando incontro B-Frame nel flusso video. 
+
+La sequenza precedente viene infatti così riordinata:
+![[05-Compressione Video-20240111184921379.webp|512]]
+
+Come regola generale 'euristica', assolutamente non ufficiale e non verificata: I B-Frame vanno sempre dopo i frame da cui dipendono nel "futuro" nella sequenza iniziale. 
+In altre parole, sposto "di dietro" ai B-Frames i P-Frames e gli I-Frames.
 
 # MPEG-1
 
