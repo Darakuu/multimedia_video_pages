@@ -115,9 +115,62 @@ In altre parole, sposto "di dietro" ai B-Frames i P-Frames e gli I-Frames.
 
 # MPEG-1
 
-# MPEG-2
+L'obiettivo di questo formato era il raggiungimento della qualità VHS: per ottenerla, il video è così codificato:
+- La luminosità è a 352x288 pixel (PAL);
+- Mentre per quanto riguarda il colore l'immagine è ulteriormente divisa per due e pertanto è codificata a 176x144, perché la crominanza in spazio YCbCr è sottocampionata con un rapporto 4:2:0 
+ 
 
+MPEG-1 codifica 6 blocchi 8x8: 4 per la luminanza, e 2 per la crominanza.
+
+Il codec MPEG-1 effettua una serie di operazioni di compressione delle immagini che sfruttano non solo la **trasformata DCT** (ridondanza spaziale), ma anche le differenze tra un fotogramma e l'altro (ridondanza temporale). 
+
+Anziché memorizzare tutti i fotogrammi per intero, se ne memorizzano soltanto alcuni come tali ad intervalli prefissati e regolari (cioè gli I-Frames definiti pocanzi.) 
+
+Tra di essi ci si limita a memorizzare una serie di frames "incompleti" nel quale vengono scritte solo le informazioni che subiscono variazioni rispetto alle immagini precedenti (ossia i P-Frames e i B-Frames), i cambiamenti vengono salvati comunemente utilizzando i motion vectors.
+
+# MPEG-2
+L'obiettivo di questo formato era quello di essere flessibile e adatto a varie applicazioni:
+- In grado anche di codificare in digitale le immagini con una qualità equivalente a quella analogica;
+- in grado di codificare l'audio con una qualità equivalente a quella cinematografica (flussi di dati vino a 60 Mbps).
+ 
+
+La caratteristica principale di MPEG-2 è la sua **scalabilità**:
+- Ha la possibilità di creare soluzioni di codifica o decodifica più o meno complesse, as econda del tipo di prodotto da realizzare, aggiungendo poi altre caratteristiche.
+	- Trasporto parallelo di canali audio, robustezza agli errori di rete, etc...
+- Per consentire all'industria di implementare lo standard gradualmente, MPEG ha definito una serie di livelli e profili in base ai quali ogni soluzione tecnica può essere sviluppata e verificata.
+- Esistono cinque profili:
+	- Simple (SP)
+	- Main (MP)
+	- SNR Scalable
+	- Spatial Scalable
+	- High
+- E 4 livelli:
+	- Low (LL)
+	- Main (ML)
+	- High1440 (H-14)
+	- High (HL)
+ 
+
+Inoltre, è importante notare che MPEG-2 non fornisce un suo codec: ognuno può creare una propria implementazione del codec MPEG-2. 
+
+Viene solo fornito il decoder: se vengono seguiti gli standard di codifica correttamente, il flusso video verrà decodificato correttamente.
 # MPEG-4 (cenni)
+
+MPEG-4 usa fondamentalmente lo stesso algoritmo di compressione di MPEG-1,-2, ma in modo molto più efficiente:
+
+- I/P/B-Frames;
+- Profili e Livelli
+- 32 "Parti" (in realtà 33)
+ 
+
+Ogni parte descrive il funzionamento specifico di un sottostandard (ad esempio, compressione dei font nei frame, multiplexing, etc...) 
+
+Una funzionalità aggiuntiva di MPEG-4 è che il sistema riesce a distinguere i vari livelli di profondità di un'immagine: lo sfondo e i primi piani. 
+
+Questo permette di non memorizzare lo sfondo nel caso in cui rimanga uguale. 
+ 
+
+Inoltre, è possibile elaborare queste immagini più semplicemente, estrapolando gli attori o gli oggetti dallo sfondo con grande facilità, usando il Virtual Reality Modeling Language (VRML), che permette di rappresentare in formato testuale mesh 3D
 
 # H.264
 
