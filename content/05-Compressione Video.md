@@ -80,7 +80,7 @@ I B-Frame possono essere posizionati in mezzo a I-Frames e P-Frames.
 
 Consideriamo la sequenza di frame (f) con relativi macroblocchi (ma):
 
-![[05-Compressione Video-20240111183614933.webp|512]]
+![[FrameSequence.png|512]]
 
 > [!example]- Esempio Memorizzazione (possibile domanda esame):
 > - i $\text{ma}$ del f1 sono tutti codificati come Intra-Frame
@@ -104,8 +104,10 @@ Ma come fanno i frame B a riferirsi a frame che "devono ancora arrivare" nel flu
 
 L'Encoder e il decoder processano i frame in ordine diverso da quello iniziale. I frame vengono riordinati per evitare di eseguire "salti" quando incontro B-Frame nel flusso video. 
 
-La sequenza precedente viene infatti così riordinata:
-![[05-Compressione Video-20240111184921379.webp|512]]
+La sequenza precedente viene infatti così riordinata: 
+
+
+![[FrameSequenceSorted.png|512]]
 
 Come regola generale 'euristica', assolutamente non ufficiale e non verificata: I B-Frame vanno sempre dopo i frame da cui dipendono nel "futuro" nella sequenza iniziale.
 
