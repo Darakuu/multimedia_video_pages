@@ -170,7 +170,15 @@ Una funzionalità aggiuntiva di MPEG-4 è che il sistema riesce a distinguere i 
 Questo permette di non memorizzare lo sfondo nel caso in cui rimanga uguale. 
  
 
-Inoltre, è possibile elaborare queste immagini più semplicemente, estrapolando gli attori o gli oggetti dallo sfondo con grande facilità, usando il Virtual Reality Modeling Language (VRML), che permette di rappresentare in formato testuale mesh 3D
+Inoltre, è possibile elaborare queste immagini più semplicemente, estrapolando gli attori o gli oggetti dallo sfondo con grande facilità, usando il Virtual Reality Modeling Language (VRML), che permette di rappresentare in formato testuale mesh 3D. 
+ 
+
+> [!NOTE]- NdR
+> In realtà, cercando sul web, e come è facilmente intuibile, VRML ha subito molte critiche ai tempi ed è stato scarsamente utilizzato. Viene addirittura superato da Quake.
+
+Dal 2002, MPEG-4 sfrutta al suo interno QuickTime per aumentare le potenzialità di trasmissione dati via web. QuickTime è un formato file "contenitore".
+
+
 
 # H.264
 
