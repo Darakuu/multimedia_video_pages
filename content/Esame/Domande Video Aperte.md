@@ -144,7 +144,8 @@ tags:
 - Data la qui presente sequenza di frame memorizzati, etichettare ciascun frame in base all'ordine di codifica:
 	-  \[**I**, B, P, B, B, P, B, P, P, B, B, B, **I**, P, **I**, B, **I**, P, B, **I**]
 > [!check]- Risposta
->  wip  
+>  La sequenza diventerà:
+>  \[I,P,B,P,B,B,P,B,P,I,P,B,B,B,I,I,B,P,I,B]  
 
 - Descrivi le caratteristiche di I-Frame, P-Frame, e B-Frame
 > [!check]- Risposta I-Frame

@@ -180,27 +180,4 @@ Dal 2002, MPEG-4 sfrutta al suo interno QuickTime per aumentare le potenzialità
 
 
 
-# H.264
-
-## Premessa
-
-## Miglioramenti
-
-## Codifica VLC
-
-## Blocchi e Macroblocchi
-
-## Slice
-
-## Codifica Intra
-
-## Codifica Inter
-
-### Tree Structured Motion Compensation
-## Trasformata DCT
-
-## Quantizzazione
-
-## Filtro Anti-Blocchettizzazione
-
-## Applicazioni
+[[H.264]]
