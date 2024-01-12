@@ -19,5 +19,6 @@ Non intendono e non vogliono sostituire libri, slide ufficiali e quant’altro. 
 - Esame
 	- [[Domande Video Aperte|Domande a Risposta Aperta]]
 	- [[Domande Video Multiple|Domande a Risposta Multipla]]
+	- [[Domande Video Multiple - Esercitazione 12-01-2024|Esercitazione del 12/01/2024]]
 
 p.s. la parte di storia del video è volutamente omessa.
