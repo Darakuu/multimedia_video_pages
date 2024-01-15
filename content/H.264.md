@@ -58,6 +58,8 @@ Ad esempio, nello streaming via internet spesso lo stesso video è codificato a 
 
 #### Funzionamento SP
 ![[05-Compressione Video-20240112000853729.png|512]]
+ 
+
 Ogni SP è unico per $n$ flussi.
 ## Codifica Intra
 
