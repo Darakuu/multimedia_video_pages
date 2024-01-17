@@ -101,4 +101,35 @@ Le $X_{initial}$ potrebbero essere errate, dato che stiamo analizzando un video 
 
 #### Filtro di Kalman (Cenni)
 
+Strumento molto potente che:
+- Prende in input una serie di misure osservate nel tempo;
+- Tiene conto di un eventuale rumore casuale;
+- **Predizione**: fissato un tempo $t$ si stima la misura $z_{t+1}$
+- **Correzione**: osservata una misura può correggerla, eventualmente basandosi su una predizione.
+
+In pratica si costruisce un modello di movimento, basata su due equazioni differenziali stocastiche (lineari):
+
+- Nel processo stocastico, lo stato $x_{k}$ è dato da:
+	- $x_{t}=Ax_{t-1}+Bu_{t}+W_{t}$
+- La misura (stima) $z_{k}$ di $x_{k}$ è data da:
+	- $z_{t}=Hx_{t}+v_{t}$
+
+Dove:
+- $t$: istante di tempo;
+- $A,B,H$ sono modelli transazionali;
+- $w,v$ rappresentano rumore gaussiano, a noi sconosciuto (solo stimabile);
+- $u$ è il controllo utente.
+
+Affiancando il filtro di Kalman ad un tracciatore Bayesiano possiamo stimare le probabilità:
+- Predizione: $P(x_{t}|z_{t-1})$
+- Correzione (update): $P(x_{t}|z_{t})$
+
+Lo stato $x_{k}$ dipende quindi dal controllo utente ($u$), che provoca un esito, il quale si trova in B. 
+
+Ma lo stato $x_{t}$ al tempo $t$ dipende anche dagli stati precedenti ($Ax_{t-1}$)
+
 ### Fase 3: Post-Processing
+
+Una fase di post-processing dei frame è necessaria perché il crop dei frame fa perdere informazioni. Lo scopo principale è migliorare la qualità dei frame. 
+
+Si può agire anche sui valori di intensità nei pixel, qualora l'esposizione del video non sia uniforme (in questo caso si parla di **stabilizzazione cromatica**).
