@@ -43,14 +43,15 @@ tags:
 
 - Che sistema di registrazione si usa sui nastri magnetici?
 > [!check]- Risposta
-> Sistema Elicoidale wip 
+> Sistema Elicoidale 
 
 - Parlare dei Sistemi di Scansione, Progressiva e Interlacciata  
 > [!check]- Risposta
+> [[01b-Sistemi di Registrazione#Scansione Progressiva]]
 
 - Tramite quale tecnica è possibile ridurre lo sfarfallio nei monitor a tubo catodico? Quale tecnica risulta allo stesso tempo utile nei monitor a cristalli liquidi? 
 > [!check]- Risposta
-> wip
+> La scansione progressiva riduce lo sfarfallio nei monitor dei pc, mentre invece nei CRT si riduce con l'interlacing.
 
 
 
