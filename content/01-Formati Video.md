@@ -14,7 +14,7 @@ Si distinguono due formati: Analogico e Digitale. 
 
 # Formati TV Analogici
 
-Per l'acquisizione e il display del segnale video tutti i sistemi usano RGB (o XYZ). 
+Per l'**acquisizione** e il **display** del segnale video tutti i sistemi usano RGB (o XYZ). 
 
 $$
 \begin{align}
@@ -35,7 +35,7 @@ B
 \end{align}
 $$
 
-Per la trasmissione si usa uno spazio di coordinate luminanza/crominanza (YUV), perché richiede una larghezza di banda minore.
+Per la trasmissione si usa uno spazio di coordinate luminanza/crominanza (YUV), **perché richiede una larghezza di banda minore**.
 $$\begin{align}
 & Y = 0.3R+0.6G+0.1B \\
 & U = (K_{u})(B-Y) \\
@@ -43,7 +43,37 @@ $$\begin{align}
 \end{align}$$
 ## NTSC
 
-### Rappresentazione del Colore
+National Television Systems Committee.
+
+| Caratteristiche NTSC | Valori |
+| ---- | ---- |
+| Scan-lines | 525 (480 visibili) interlacing 2:1 |
+| Line Rate | 15750 Hz |
+| Frequenza di semiquadro | 60 Hz (60 semiquadri al secondo, **27,97** FPS $\iff$ Hz per quadro) |
+| Formato delle immagini | 4:3 o 16:9 |
+| Spazio di Colore | **YIQ** |
+| Scansione Immagine | Orizzontale da in alto a sinistra a in basso a destra |
+| Sincronismo colore | 3,58 MHz (sottoportante di crominanza) |
+| Modulazione | **QAM** (Quadrature Amplitude Modulation) |
+
+### Rappresentazione del Colore YIQ
+
+La crominanza è rappresentata tramite:
+
+- I: In-Phase;
+- Q: Quadrature-Phase.
+
+$$
+\begin{flalign}
+& I = 0.60R - 0.32G - 0.28B \\
+& Q= 0.21R - 0.52G +0.31B
+\end{flalign}
+$$
+I e Q hanno la stessa frequenza ma con una differenza di fase di 90°. 
+
+Si applica una modulazione in ampiezza di sottoportante (ASMC). 
+
+
 
 ### Problemi di trasmissione
 
