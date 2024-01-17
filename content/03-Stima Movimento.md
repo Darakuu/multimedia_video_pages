@@ -156,9 +156,65 @@ Se ci sono molti elementi $w'(x)\longrightarrow 0$ significa che mi sono avvicin
 
 ## Rappresentazione del Movimento
 
+Come rappresentare però i motion field? 
+
+Evitiamo una rappresentazione globale, dato che non funziona bene se nella scene sono presenti più oggetti che si muovono in maniera differente. 
+
+Evitiamo però anche una rappresentazione basata sui singoli pixel che compongono l'immagine, dato che richiede la stima di troppi vettori di movimento. 
+
+I criteri che funzionano sono:
+- Rappresentazione basata su regione: segmentiamo l'immagine in regioni con algoritmi di edge detection.
+	- Computazionalmente oneroso, potrebbe risultare difficile da generalizzare;
+- Rappresentazione basata su **blocchi**:
+	- Buon compromesso fra *accuracy* e *complexity*;
+	- Problemi di discontinuità solo sul bordo dei blocchi (risolvibile)
+
+Nella rappresentazione basata su blocchi ricordo come si sono spostati i blocchi e la differenza tra la stima effettuata e il movimento reale.
+
 # Criteri di Stima del Movimento
 
 ## Displaced Frame Difference (DFD)
+
+Siano: 
+
+- Anchor frame $I_{1}$ a $t_{1}$ il frame iniziale;
+- Target Frame $I_{2}$ a $t_{2}$ il frame su cui stimare il relativo movimento:
+	- $t_{1}>t_{2}:$ backward motion estimation;
+	- $t_{1}<t_{2}:$ forward motion estimation
+Il nostro obiettivo sarà minimizzare la differenza. 
+
+Definiamo inoltre una funzione di mapping:
+- $w(x;a)=x+d(x;a)$
+Dove $a=[a_{1},a_{2},\dots,a_{L}]^T$ sono i parametri di movimento (da stimare!). 
+
+Stiamo essenzialmente tentando di capire che tipo di spostamento è avvenuto.
+
+
+> [!def] Errore DFD
+>$E_{DFD}=\displaystyle\sum_{x \in \Lambda}|I_{2}(w(x;a))-I_{1}(x)|^p$
+
+Dove:
+- $\Lambda:$ insieme dei pixel nell'anchor frame $I_{1}$;
+- $p:$ intero positivo; casi particolari:
+	- $p=1:$ $E_{DFD}$ è detto **mean absolute difference** (MAD)
+	- $p=2:$ $E_{DFD}$ è detto **mean squared error** (MSE)
+L'errore è calcolato nel frame trasformato e il frame immediatamente prima. 
+
+
+> [!NOTE] Ragionamento
+> Sappiamo che la derivata di una funzione si azzera nei punti di minimo e massimo. Dato che vogliamo minimizzare l'errore, prendiamo la derivata.
+> 
+
+Affinchè la stima dei parametri $a$ sia la migliore, si dovra minimizzare $E_{DFD}$ 
+
+- Essendo $a$ un vettore, dovremo in generale imporre che il gradiente $\nabla$ di $E_{DFD}=0$.
+- Ad esempio, per $p=2$ (MSE) il gradiente sarà:
+
+$\dfrac{\partial E_{DFD}}{\partial a}=2\displaystyle\sum_{x \in \Lambda}(I_{2}(w(x;a))-I_{1}(x))\dfrac{\partial d(x)}{\partial a}\nabla I_{2}(w(x;a))$
+
+Dove $\dfrac{\partial d(x)}{\partial a}$ è una matrice contenente le derivate parziali di tutti i parametri di movimento, ed è una matrice brutta brutta che vogliamo approssimare (ed analiticamente non si può fare). 
+
+
 
 ## Block Matching Algorithm (BMA)
 
