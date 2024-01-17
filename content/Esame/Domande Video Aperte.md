@@ -127,7 +127,8 @@ tags:
 
 - Perché in FPS (Frame Position Smoothing) si confronta la posizione assoluta di un frame (rispetto al primo frame) con quella calcolata applicando un filtro passa basso?
 > [!check]- Risposta
->  wip  
+>  L'idea è quella di usare la Trasformata di Fourier per passare dal dominio temporale al dominio delle frequenze per vedere i punti di alta frequenza e quindi   
+notare i movimenti improvvisi, che saranno attenuati con un filtro passo-basso.  
 
 - Come si individuano i frame in cui potrebbe essere necessario applicare un filtraggio del movimento?
 > [!check]- Risposta
@@ -148,14 +149,8 @@ tags:
 >  \[I,P,B,P,B,B,P,B,P,I,P,B,B,B,I,I,B,P,I,B]  
 
 - Descrivi le caratteristiche di I-Frame, P-Frame, e B-Frame
-> [!check]- Risposta I-Frame
->  wip  
-
-> [!check]- Risposta P-Frame
->  wip  
-
-> [!check]- Risposta B-Frame
->  wip  
+> [!check]- Risposte
+>  [[05-Compressione Video]]  
 
 - H.264 a cosa serve la Macroblock Allocation Map?
 > [!check]- Risposta
