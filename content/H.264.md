@@ -38,7 +38,7 @@ I **macroblocchi** hanno una dimensione di 16x16 campioni (pixel) per la luminan
 
 I macroblocchi sono raggruppati in **slices**: uno slice è un sottoinsieme di un'immagine decodificabile indipendentemente dalle altre. 
 
-L'ordine di trasmissione delle slice (e quindi dei macroblocchi) non è necessariamente quello originario dell'immagine, ma è invece indicato dal codificatore in una mappa apposita: la **Macroblock Allocation Map**. 
+L'ordine di trasmissione delle slice (e quindi dei macroblocchi) non è necessariamente quello originario dell'immagine, ma è invece indicato dal codificatore in una mappa apposita: la <ins>Macroblock Allocation Map</ins>. 
 
 Sono definiti 5 differenti tipi di slice:
 
@@ -49,6 +49,7 @@ Se le slice sono tutte di tipo I, è come se fosse un "reset" delle dipendenze. 
 
 > [!NOTE] Nota:
 > In H.264 più slice possono essere utilizzate per le predizioni, e pertanto encoder e decoder memorizzano le slice utilizzate per le predizioni in una apposita memoria (multipicture buffer), e il controllo per la gestione del buffer è specificato nel flusso dati.
+> 
 > 
 > Precedendemente, si poteva fare riferimento al più ad altri 2 frame.
 >
@@ -90,7 +91,7 @@ La Tree Structured Motion Compensation è la segmentazione dei macroblocchi (di 
 
 Prevede 4 modi di segmentazione: 16x16 (0 segmentazioni), 16x8 (segmentazione orizzontale), 8x16 (verticale), oppure 8x8. 
 
-Se viene scelta la modalità 8x8, ciascuna delle 4 partizioni così ottenute può essere ulteriormente suddivisa in sottopartizioni, nello stesso modo.
+Se viene scelta la modalità 8x8, ciascuna delle 4 partizioni così ottenute può essere ulteriormente suddivisa in sottopartizioni, nello stesso modo. (andando così ad ottenere un albero...)
 
 ![[05-Compressione Video-20240112003924176.png|512]]
 

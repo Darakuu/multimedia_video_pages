@@ -123,7 +123,7 @@ tags:
 
 - Qual è lo scopo principale della fase di filtraggio del movimento?
 > [!check]- Risposta
->  wip 
+>  Inviduare e distinguere il jitter dal padding, e correggere/eliminare il movimento involontario. 
 
 - Perché in FPS (Frame Position Smoothing) si confronta la posizione assoluta di un frame (rispetto al primo frame) con quella calcolata applicando un filtro passa basso?
 > [!check]- Risposta
@@ -152,14 +152,14 @@ notare i movimenti improvvisi, che saranno attenuati con un filtro passo-basso.�
 > [!check]- Risposte
 >  [[05-Compressione Video]]  
 
-- H.264 a cosa serve la Macroblock Allocation Map?
+- [[H.264]] - a cosa serve la Macroblock Allocation Map?
 > [!check]- Risposta
->  wip  
+>  Indica l'ordine di trasmissione delle slice (e quindi dei macroblocchi), che differisce dall'ordine originario dell'immagine.  
 
 - H.264 - Codifica Inter: descrivere la Tree Structured Motion Compensation, specificando tutte le configurazioni possibili
 > [!check]- Risposta
->  wip  
+>  può avere configurazioni a segmentazione 16x16 (no segmentazione), 8x16 (segmentazione orizzontale), 16x8 (verticale), o 8x8. Se viene suddivisa in 8x8 macroblocchi allora si può continuare a suddivedere fino al raggiungimento della dimensione minima.  
 
 - H.264 - Quand'è che non conviene usare una configurazione con molta segmentazione dei macroblocchi?
 > [!check]- Risposta
->  wip  
+>  quando non trarremmo vantaggio dalla segmentazione (e.g. immagine ferma) (non sono sicuro, controlla correttezza risposta)  

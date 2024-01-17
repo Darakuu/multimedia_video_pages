@@ -66,6 +66,7 @@ Idea di base per calcolare il MV correttore: 
 ![[04-Stabilizzazione Video-20240117133305152.png|384]]
 
 Passare dal dominio temporale al dominio delle frequenze ha lo svantaggio di richiedere un'elaborazione **offline**. 
+
 FPS può essere utilizzato online, a patto che venga introdotto un buffer di delay. La formula, ad esempio, diventa:
 
 - $\Large V_{c}(n) = X_{lpf}(n+25)-X_{act}(n)$

@@ -70,10 +70,12 @@ La crominanza è rappresentata tramite:
 - Q: Quadrature-Phase.
 
 $$
+
 \begin{flalign}
 & I = 0.60R - 0.32G - 0.28B \\
 & Q= 0.21R - 0.52G +0.31B
 \end{flalign}
+
 $$
 I e Q hanno la stessa frequenza ma con una differenza di fase di 90°. 
 
@@ -156,10 +158,12 @@ SÉquentiel Couleur À Mémoire.
 - Si usa lo spazio di colore YDbDr:
 
 $$
+
 \begin{align}
 & D_{b}=3.059U \\
 & D_{r}=-2.169V
 \end{align}
+
 $$
 - E si applica una modulazione sulla **frequenza**
 - La differenza principale tra NTSC/PAL e SECAM è la seguente:
