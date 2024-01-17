@@ -35,12 +35,18 @@ B
 \end{align}
 $$
 
-Per la trasmissione si usa uno spazio di coordinate luminanza/crominanza (YUV), **perché richiede una larghezza di banda minore**.
-$$\begin{align}
+Per la trasmissione si usa uno spazio di coordinate luminanza/crominanza (YUV), **perché richiede una larghezza di banda minore**. 
+
+
+$$
+
+\begin{align}
 & Y = 0.3R+0.6G+0.1B \\
 & U = (K_{u})(B-Y) \\
 & V = (K_{v})(R-Y)
-\end{align}$$
+\end{align}
+
+$$
 ## NTSC
 
 National Television Systems Committee.
