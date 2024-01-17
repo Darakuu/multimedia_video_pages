@@ -26,10 +26,13 @@ I simboli che rappresentano i parametri relativi ai modi di codifica e predizion
 
 ## Blocchi e Macroblocchi
 
-I **blocchi** sono costituiti da 4x4 pixel. La dimensione dei blocchi è quindi ridotta a $\dfrac{1}{4}$ rispetto a MPEG-2. 
+I **blocchi** sono costituiti da **4x4** pixel. La dimensione dei blocchi è quindi ridotta a $\dfrac{1}{4}$ rispetto a MPEG-2. 
 
 I **macroblocchi** hanno una dimensione di 16x16 campioni (pixel) per la luminanza, e 8x8 campioni per ciascuna delle due componenti della crominanza (spazio di colori: YCbCr). 
 
+
+> [!warning] Dimensione minima blocco
+> La dimensione minima di un blocco è **4x4**. 2x2, ad esempio, non è una dimensione valid
 
 ## Slice
 
