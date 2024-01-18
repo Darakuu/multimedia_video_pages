@@ -150,19 +150,144 @@ Se ci sono molti elementi $w'(x)\longrightarrow 0$ significa che mi sono avvicin
 
 ### Tracking, Booming
 
+Si aggiungono due costanti, $T_{x}$ e $T_{y}$. 
+
+I cambiamenti di coordinate nel sistema 3D sono:
+
+$$
+\begin{align}
+\begin{bmatrix}
+X' \\
+Y' \\
+Z' \\
+
+\end{bmatrix}=
+\begin{bmatrix}
+X+T_{x} \\
+Y+T_{y} \\
+Z+0
+\end{bmatrix}
+\end{align}
+$$
+Nel sistema 2D invece:
+
+$$
+\begin{align}
+\begin{bmatrix}
+x' \\
+y'
+\end{bmatrix}
+= 
+\begin{bmatrix}
+x+ F\cdot \dfrac{T_{x}}{Z} \\
+y+ F \cdot \dfrac{T_{y}}{Z} 
+\end{bmatrix}
+\end{align}
+$$
+
+Di fatto, è una traslazione. Andiamo a sommare alla posizione originale il valore di cui ci siamo spostati.
+
+L'approssimazione (ortografica) del motion field è:
+
+$$
+\begin{align}
+\begin{bmatrix}
+d_{x}(x,y) \\
+d_{y}(x,y)
+\end{bmatrix}= 
+\begin{bmatrix}
+t_{x} \\
+t_{y}
+\end{bmatrix}
+\end{align}
+$$
+
 ### Zooming
 
 Zoom($\rho$)
 
-Nell Zooming si conservano le relazioni spaziali
+Nello Zooming si conservano le relazioni spaziali. 
 
-### Tilt, Pan approssimato
+I cambiamenti in 2d:
+
+$$
+\begin{align}
+& \begin{bmatrix}
+x' \\
+y'
+\end{bmatrix} = 
+\begin{bmatrix}
+\rho x \\
+\rho y
+\end{bmatrix}
+& \text{con }\rho=\dfrac{F'}{F}
+\end{align}
+$$
+ 
+E l'approssimazione del motion field:
+
+$$
+\begin{align}
+\begin{bmatrix}
+d_{x}(x,y) \\
+d_{y}(x,y)
+\end{bmatrix}
+ =
+\begin{bmatrix}
+(\rho-1)x \\
+(\rho-1)y
+\end{bmatrix}
+\end{align}
+$$
+#### Differenze Dolly e Zoom
+
+Lo Zoom è una variazione della focale. Difatti $\rho$ è il rapporto tra la focale 'dopo' e 'prima'. Inoltre, nello zoom lo spostamente dipende dalle coordinate: se siamo vicini allo zero, avremo piccoli spostamenti. Mentre invece se siamo vicini a bordi, noteremo più movimento. 
+
+Questo comportamento è facilmente intuibile anche usando la formula:
+
+$(\rho-1)\cdot 0=0$ 
+
+Inoltre, anche dalla formula, notiamo che lo zoom non dipende dalla $Z$, mentre invece il Dolly sì. Nel Dollying il movimento lungo l'asse $Z$ influisce.
+### Tilt, Pan approssimato (fatta molto velocemente)
+
+Fondamentalmente, tutte le rotazioni derivano da matrici di rotazioni vere e proprie, come è facile immaginare. L'approssimazione funziona se assumiamo che: 
+
+- $\theta_{x}\backsimeq 0$
+- $\theta_{y}\backsimeq_{0}$
+- $Z\gg Y\theta_{x}$
+- $Z\gg X\theta_{y}$
+
+In altre parole, le operazioni non dipendono dalla posizione nel frame, ma solo dai $\theta$. Può quindi variare la posizione centrale 
+
+Se non valgono le condizioni specificate pocanzi, non vale più la matrice di rotazione
 
 ### Roll
 
+Roll dipende dalle coordinate, infatti la posizione centrale resta invariata.
+
 ### Modello a 4 parametri
 
+- Consideriamo il caso in cui una telecamera effettua in sequenza: boom, tracking, pan, tilt, zoom e rolling;
+- Usando le approssimazioni viste in precedenza è possibile mappare una funzione a 4-parametri che riassume tutte le trasformazioni;
+- Se l'ordine dovesse cambiare, la formula rimarrebbe valida, ma cambierebbero le relazioni fra i 4-parametri e i parametri delle singole trasformazioni.
+
+
+> [!success] Tutta la matrice di trasformazione non viene chiesta all'esame (di solito)
+> Gioitene tutti 😇
+
+Il modello a 4-parametri è un caso particolare di trasformazione affine (**affine mapping**) normalmente a 6 parametri, prende il nome di trasformazione geometrica (**geometric mapping**), e caratterizza qualsiasi combinazione di scaling, rotazione e traslazione in 2D.
 ### Modello a 6 parametri
+
+- La rotazione di un oggetto attorno all'origine dello spazio 3D è data dalla matrice di rotazione:
+
+$[R]=[R_{x}]\cdot[R_{y}]\cdot[R_{z}]$
+
+che non ricopio completa qui perché dovrebbero pagarmi. 
+
+Cose importanti da ricordare:
+- Sebbene la matrice ha 9 elementi, essa è determinata solo da 3 angoli di rotazione.
+- Le relazioni che otteniamo sono note come il **caso generale** del mapping di traslazioni e rotazioni arbitrarie da spazio 3D a spazio 2D
+- Rispetto al modello a 4-parametri, con questo modello a 6-parametri è possibile considerare anche traslazioni lungo l'asse Z (dollying) e rotazioni attorno ad assi arbitrari.
 
 ## Rappresentazione del Movimento
 
