@@ -279,20 +279,34 @@ Modifichiamo l'EBMA:
 Nota bene: a dispetto del nome, potrebbero esserci più di tre passi di ricerca. In casi particolari potremmo anche non trovare effettivamente il minimo ottimo, ma quanto meno siamo vicini.
 
 > [!warning] RISPOSTA DOMANDA ESAME❗ :
-> $L=\log_{2}R_{0}+1$ formula fondamentale da ricordare.
-> Quesito: Alla fine dell'esecuzione di un'istanza dell'algoritmo di block matching Three-Step-Search si osserva che per un singolo blocco sono stati visitati 73 punti di ricerca. Qual è il passo di ricerca iniziale R0?
-> Procedimento:
-> $L=\log_{2}R_{0}+1$;
-> Sappiamo che sono stati visitati 73 punti. In ogni passo di ricerca io visito 8 punti+1, quindi, con $P$ punti di ricerca:
-> $P=8L+1$;
-> $73=8L+1 \implies L=\dfrac{72}{8}=9$
-> Sostituendo nella formula precedente:
-> $9=\log_{2}R_{0}+1$
-> $8=\log_{2}R_{0}$
-> Elevando entrambi i membri, ottengo:
-> $\large2^8=\cancel{ 2 }^{\cancel{ \log_{2} }R_{0}}$
-> Che mi restituisce il passo di ricerca iniziale $R_{0}$, quello che stavo cercando.
-> $R_{0}=2^8=256$ 
+> $L=\log_{2}R_{0}+1$ formula fondamentale da ricordare. 
+>
+> Quesito: Alla fine dell'esecuzione di un'istanza dell'algoritmo di block matching Three-Step-Search si osserva che per un singolo blocco sono stati visitati 73 punti di ricerca. Qual è il passo di ricerca iniziale R0? 
+>
+> Procedimento: 
+>
+> $L=\log_{2}R_{0}+1$; 
+>
+> Sappiamo che sono stati visitati 73 punti. In ogni passo di ricerca io visito 8 punti+1, quindi, con $P$ punti di ricerca: 
+>
+> $P=8L+1$; 
+>
+> $73=8L+1 \implies L=\dfrac{72}{8}=9$ 
+>
+> Sostituendo nella formula precedente: 
+>
+> $9=\log_{2}R_{0}+1$ 
+>
+> $8=\log_{2}R_{0}$ 
+>
+> Elevando entrambi i membri, ottengo: 
+>
+> $\large2^8=\cancel{ 2 }^{\cancel{ \log_{2} }R_{0}}$ 
+>
+> Che mi restituisce il passo di ricerca iniziale $R_{0}$, quello che stavo cercando. 
+>
+> $R_{0}=2^8=256$  
+>
 
 
 
