@@ -260,10 +260,41 @@ Difatti, dipende solo dalla dimensione del frame (dell'immagine), e dalla dimens
 Resta comunque molto pesante, computazionalmente parlando, quindi serve un metodo più veloce.
 ### Three-Step Search
 
+Modifichiamo l'EBMA:
+- Per trovare il migliore $d_{m}$ confrontiamo i $d_{m}$ fra l'anchor frame $B_{m}$ **e un sottoinsieme** dei possibili target frame $B_{m}'$ all'interno di una regione di ricerca.
+- Si inizia con un passo di ricerca $R_{0}$ uguale (o leggermente maggiore) alla metà del raggio di ricerca R;
+- Ad ogni passo dell'algoritmo ri riduce il passo di ricerca della metà, finché non sarà pari a 1
+- Effettuiamo infine EBMA solo su una ragione molto più piccola (quella probabile).
+	- In un intorno di 8 punti, +1 quello in cui mi trovo già.
+
+![[03-Stima Movimento-20240118140859758.png|384]]
+
+- Al primo passo:
+	- Si calcola il miglior MV su 9 punti di ricerca entro un raggio di ricerca $R_0$
+- Dal secondo passo in poi:
+	- Si pone $R_{i+1}=\dfrac{R_{i}}{2}$
+	- Si calcola il miglior MV su 8 punti di ricerca entro un raggio di ricerca $R_{i+1}$
+	- Se reitera finché $R_{n}=1$
+
+Nota bene: a dispetto del nome, potrebbero esserci più di tre passi di ricerca. In casi particolari potremmo anche non trovare effettivamente il minimo ottimo, ma quanto meno siamo vicini.
 
 > [!warning] RISPOSTA DOMANDA ESAME❗ :
+> $L=\log_{2}R_{0}+1$ formula fondamentale da ricordare.
+> Quesito: Alla fine dell'esecuzione di un'istanza dell'algoritmo di block matching Three-Step-Search si osserva che per un singolo blocco sono stati visitati 73 punti di ricerca. Qual è il passo di ricerca iniziale R0?
+> Procedimento:
+> $L=\log_{2}R_{0}+1$;
+> Sappiamo che sono stati visitati 73 punti. In ogni passo di ricerca io visito 8 punti+1, quindi, con $P$ punti di ricerca:
+> $P=8L+1$;
+> $73=8L+1 \implies L=\dfrac{72}{8}=9$
+> Sostituendo nella formula precedente:
+> $9=\log_{2}R_{0}+1$
+> $8=\log_{2}R_{0}$
+> Elevando entrambi i membri, ottengo:
+> $\large2^8=\cancel{ 2 }^{\cancel{ \log_{2} }R_{0}}$
+> Che mi restituisce il passo di ricerca iniziale $R_{0}$, quello che stavo cercando.
+> $R_{0}=2^8=256$ 
 
-$L=\log_{2}R_{0}+1$ formula fondamentale da ricordare.
+
 
 ## Features from Accelerated Segment Test (FAST)
 
