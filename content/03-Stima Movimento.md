@@ -218,8 +218,46 @@ Dove $\dfrac{\partial d(x)}{\partial a}$ è una matrice contenente le derivate p
 
 ## Block Matching Algorithm (BMA)
 
+Consideriamo la rappresentazione di movimento basata su blocchi.
+- I blocchi possono avere qualsiasi forma geometrica, ma per semplicità assumiamo che siano quadrati.
+- Devono rispettare le seguenti leggi:
+	- $\bigcup_{m \in M}B_{m}=\Lambda$
+	- $B_{m} \bigcap B_{n}=\emptyset, m\neq n$
+- Cioè l'unione di tutti i blocchi restituisce l'intero frame ( $\Lambda$ ), e l'intersezione di tutti i blocchi restituisce un insieme vuoto (non vi è sovrapposizione tra frame).
+- Assumiamo inoltre che tutti i pixel di un blocco $B_{m}$ si muovano nella stessa direzione, con un MV per blocco (modello traslazionale blockwise).
+- Dato l'anchor frame(?) $B_{m}$ vogliamo trovare il target frame $B_{m}'$ che minimizza l'errore DFD.
+
 ### BMA Esaustivo (EBMA)
 
+Cioè vogliamo minimizzare: 
+
+$E_{m}(d_{m})=\displaystyle\sum_{x \in B_{m}}|I_{2}(x+d_{m})-I_{1}(x)|^p$ 
+
+
+Per trovare il migliore $d_{m}$ confrontiamo tutti i $d_{m}$ fra l'anchor frame $B_{m}$ e tutti i possibili target frame $B_{m}'$ all'interno di una regione di ricerca. 
+
+Tutto questo processo è molto oneroso computazionalmente. Per ridurre il carico si può usare la Mean Absolute Difference (MAD Error). 
+
+Solitamente si una un passi di ricerca pari a 1 pixel (integer-per-pixel accuracy search.). 
+
+Sia $N\times N$ la dimensione del blocco, e il raggio della regione di ricerca pari a $\pm R$, allora:
+- Dovendo fare una sottrazione, un valore assoluto e un'addizione, per ogni blocco ci sono $N^2$ operazioni.
+- Numero di operazioni per stimare un MV per blocco: $(2R+1)^2N^2$
+- La formula rappresenta tutti i possibili spostamenti di un blocco nella regione di ricerca. Il +1 c'è per gestire il caso in cui rimango fermo.
+
+![[03-Stima Movimento-20240118140011914.png]]
+
+Siano ora $M\times M$ le dimensioni dell'immagine, si avranno $\left( \dfrac{M}{N} \right)^2$ blocchi. 
+
+Avremo quindi $\left( \dfrac{M}{\cancel{ N }} \right)^2\cdot \cancel{ N^2}(2R^2+1)^2$
+
+Il numero totale di operazioni sarà quindi $M^2(2R+1)^2$. 
+
+Questo risultato è interessante perché il carico computazionale è indipendente dalla dimensione dei blocchi. 
+
+Difatti, dipende solo dalla dimensione del frame (dell'immagine), e dalla dimensione della regione di ricerca. 
+
+Resta comunque molto pesante, computazionalmente parlando, quindi serve un metodo più veloce.
 ### Three-Step Search
 
 
