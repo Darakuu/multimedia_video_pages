@@ -148,7 +148,17 @@ Se ci sono molti elementi $w'(x)\longrightarrow 0$ significa che mi sono avvicin
 
 > [!warning] Dollying != Zooming
 
+### Tracking, Booming
 
+### Zooming
+
+Zoom($\rho$)
+
+Nell Zooming si conservano le relazioni spaziali
+
+### Tilt, Pan approssimato
+
+### Roll
 
 ### Modello a 4 parametri
 
@@ -281,9 +291,9 @@ Nota bene: a dispetto del nome, potrebbero esserci più di tre passi di ricerca.
 > [!warning] RISPOSTA DOMANDA ESAME❗ :
 > $L=\log_{2}R_{0}+1$ formula fondamentale da ricordare. 
 >
-> Quesito: Alla fine dell'esecuzione di un'istanza dell'algoritmo di block matching Three-Step-Search si osserva che per un singolo blocco sono stati visitati 73 punti di ricerca. Qual è il passo di ricerca iniziale R0? 
+> **Quesito**: Alla fine dell'esecuzione di un'istanza dell'algoritmo di block matching Three-Step-Search si osserva che per un singolo blocco sono stati visitati 73 punti di ricerca. Qual è il passo di ricerca iniziale R0? 
 >
-> Procedimento: 
+> **Procedimento**: 
 >
 > $L=\log_{2}R_{0}+1$; 
 >
@@ -306,12 +316,63 @@ Nota bene: a dispetto del nome, potrebbero esserci più di tre passi di ricerca.
 > Che mi restituisce il passo di ricerca iniziale $R_{0}$, quello che stavo cercando. 
 >
 > $R_{0}=2^8=256$  
->
+>****
 
 
 
 ## Features from Accelerated Segment Test (FAST)
 
+Algoritmo per estrarre punti chiave "Features from Accelerated Segment Test". 
+
+Individua dei punti salienti (corner) nel frame, da usare come features per tracciare il movimento.
+- Si analizza ad ogni passo un insieme di 16 punti con configurazione a cerchio di raggio 3 per classificare se un punto $p$ sia di corner o meno.
+- Data l'intensità $l_{p}$ del punto $p$, se per almeno 12 punti contigui con l'intensità $l_{x}$ si ottiene che $|l_{x}-l_{p}|>t$, con $t$ soglia, allora $p$ sarà un punto di corner.
+- Quindi, non andiamo a prendere tutti i blocchi, ma individuiamo dei keypoints. 
+
+In altre parole, stiamo confrontando la luminanza del centro con la luminaza dei possibili punti corner. 
+
+Si fanno le differenze in valore assoluto, se almeno **12 punti consecutivi** superano la soglia, allora il punto analizzato ci interessa. 
+
+La soglia $t$ si sceglie arbitrariamente (di solito a seconda di alte differenze percettive). 
+
+Dato un Cerchio di Bresenham di raggio 3:
+
+![[03-Stima Movimento-20240118145050628.png|256]]
+
+Ci devono essere almeno $\dfrac{3}{4}$ punti consecutivi che superano la soglia.
+
+> [!warning] RISPOSTA DOMANDA ESAME❗ :
+> Questo punto P è di corner? 
+>
+>Sì, se ci sono 12 punti consecutivi la cui differenza supera la soglia, altrimenti **no!**
+>
+>Formula da utilizzare (come sopra):
+>
+>$|p-'\text{punto da considerare}'|>\text{soglia?}\to \text{si} \to \text{abbiamo 12 'si' consecutivi?}\to \text{allora punto da considerare è di corner}$
+>
+>Se un qualsiasi passaggio è falso, allora possiamo già escludere il punto.
+
+Inoltre, possiamo semplificare il calcolo: invece di prendere i punti sequenzialmente, eseguiamo il calcolo nei punti che potrebbero interrompere la sequenza consecutiva:
+
+![[03-Stima Movimento-20240118151610323.png|512]]
+
+Un'altra possibile semplificazione è quella di calcolare i punti nell'intorno del primo punto preso in considerazione:
+
+![[03-Stima Movimento-20240118151722904.png|256]]
+
 ### High-Speed Test
 
+Questo procedimento di semplificazione si chiama infatti "**High Speed Test**". Formalmente: 
+
+- Verificare $|l_{x}-l_{p}|>t$ per i punti del cerchio in posizioni che potrebbero interrompere la sequenza, ad esempio nei punti 1 e 9, e poi 5 e 13.
+- Se per almeno 2 di questi 4 punti il test risulta $l_{x}-l_{p}\leq t$ il punto $p$ non può essere di corner.
+
+FAST + High Speed Test è più veloce di altri metodi, sebbe meno preciso. Questo le rende adatto per applicazioni real time.
+
 ## Perché Stimare il movimento?
+
+L'informazione sul movimento della scena torna utile in vari modi:
+- [[04-Stabilizzazione Video|Stabilizzazione Video]];
+- [[05-Compressione Video|Compressione Video]];
+- Ricostruzione della scena 3D a partire dalla proiezione 2D;
+- etc...
