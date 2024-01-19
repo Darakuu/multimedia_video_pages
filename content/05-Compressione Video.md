@@ -51,6 +51,8 @@ Può contenere:
 - Gli spostamenti (i [[motion vector]]) rispetto al fotogramma da cui dipende;
 - Oppure una combinazione dei due.
 In generale dunque, un P-Frame contiene solo le differenze rispetto al frame precedente, e per questo motivo richiede meno bit per la codifica rispetto ad un I-Frame. 
+
+
  
 In un flusso video, i P-Frames sono tipicamente posizionati in mezzo ad I-Frames. La sequenza inizia con un I-Frame, seguita da una serie di P-Frames.
 

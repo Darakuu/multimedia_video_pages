@@ -22,7 +22,7 @@ Applica un metodo di compressione lossy, anche se è possibile rendere talmente 
 I simboli che rappresentano i parametri relativi ai modi di codifica e predizione, i motion vectors e i coefficienti della trasformata vengono codificati con VLC, codici a lunghezza variabile. 
 
 - VLC è basata su tabelle di assegnazione da trasmettere insieme ai frame;
-- VLC sfrutta le sequenze di zero, +1 e -1, e la correlazione fra il numero di coefficienti non nulli di un blocco e quello nei blocchi adiacenti.
+- VLC sfrutta le sequenze di 0, +1 e -1, e la correlazione fra il numero di coefficienti non nulli di un blocco e quello nei blocchi adiacenti.
 
 ## Blocchi e Macroblocchi
 
@@ -97,7 +97,10 @@ Se viene scelta la modalità 8x8, ciascuna delle 4 partizioni così ottenute pu�
 
 Le molteplici scelte hanno implicazioni differenti sul numero di bit necessario a codificare i motion vectors e le differenze residue. 
 
-In genere, dimensioni elevate del blocco sono convenienti in aree piatte, mentre in aree ricche di dettagli si può trarre vantaggio dall'uso di aree ridotte.
+
+> [!application] Esame ❗
+> In genere, dimensioni elevate del blocco sono convenienti in aree piatte, mentre in aree ricche di dettagli si può trarre vantaggio dall'uso di aree ridotte.
+
 ## Trasformata DCT
  
 Il tipo di trasformata è la DCT, leggermente modificato affinché le operazioni richiedano somme e scalamenti effettuabili con numeri interi a 16 bit in modo da non avere perdita di precisione effetuando la trasformazione diretta seguita da quella inversa.
